@@ -22,4 +22,11 @@ final class MainSceneDIContainer {
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
+    
+    // MARK: - Use Cases
+    func makeFetchFeedUseCase() -> FetchFeedUseCase {
+        //return DefaultSearchMoviesUseCase(moviesRepository: makeMoviesRepository(),
+        //                                  moviesQueriesRepository: makeMoviesQueriesRepository())
+        return .init(githubRepository: DefaultGithubRepository())
+    }
 }

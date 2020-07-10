@@ -33,7 +33,7 @@ protocol NetworkService {
     associatedtype T: API
     typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
     
-    //func request(endpoint: Requestable, completion: @escaping CompletionHandler) -> NetworkCancellable?
+    func request(api: T) -> Observable<Data>
 }
 
 

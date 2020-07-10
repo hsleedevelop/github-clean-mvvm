@@ -7,9 +7,25 @@
 
 import Foundation
 
+class GithubAPIService: APIService {
+    
+}
+
 final class AppDIContainer {
     
     lazy var appConfiguration = AppConfiguration()
+    
+//    lazy var apiService: APIService {
+//        let config = ApiDataNetworkConfig(baseURL: URL(string: appConfiguration.apiBaseURL))
+//        let apiService =
+//
+//        return APIService()
+//    }
+    
+    func makeMainSceneDIContainer() -> MainSceneDIContainer {
+        let dependencies = MainSceneDIContainer.Dependencies(apiService: GithubAPIService())
+        return .init(dependencies: dependencies)
+    }
     
 //    // MARK: - Network
 //    lazy var apiDataTransferService: DataTransferService = {
