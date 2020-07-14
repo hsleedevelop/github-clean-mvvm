@@ -167,12 +167,10 @@
 		3A38853824B849B900B5594E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3AD0C48E24BD4B660061A099 /* Extensions */,
 				3A38853A24B849E200B5594E /* ThirdParty */,
 				3A38854A24B84A9300B5594E /* Protocols */,
 				3A38854524B84A1A00B5594E /* Application */,
 				3A38855F24B84CBA00B5594E /* PresentationLayer */,
-				3A38855224B84BFB00B5594E /* Utility */,
 				3A38856C24B859AD00B5594E /* DomainLayer */,
 				3A38856B24B859A500B5594E /* DataLayer */,
 				3A38856D24B859E600B5594E /* Infrastructure */,
@@ -228,15 +226,16 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		3A38855224B84BFB00B5594E /* Utility */ = {
+		3A38855224B84BFB00B5594E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3AD0C48E24BD4B660061A099 /* Extensions */,
 				3A38855324B84BFB00B5594E /* Utilities.swift */,
 				3A38855424B84BFB00B5594E /* ErrorTracker.swift */,
 				3A38855524B84BFB00B5594E /* ActivityIndicator.swift */,
 				3A38855624B84BFB00B5594E /* Observable+Ext.swift */,
 			);
-			path = Utility;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		3A38855F24B84CBA00B5594E /* PresentationLayer */ = {
@@ -244,6 +243,7 @@
 			children = (
 				3A3941F524BC362E00FA9219 /* Protocol */,
 				3A38856024B84CC300B5594E /* MainScene */,
+				3A38855224B84BFB00B5594E /* Utils */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
