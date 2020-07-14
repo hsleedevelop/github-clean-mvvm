@@ -1,0 +1,8 @@
+@startuml
+hide footbox
+title MVVM-C-Clean-Presentation-Layer
+
+-->MainViewController: viewDidLoad()
+MainViewController->MainViewController: bindViewModel()
+
+@enduml

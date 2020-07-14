@@ -9,5 +9,6 @@ import Foundation
 
 public protocol UseCase {
     @discardableResult
-    func start() //-> Cancellable?
+    func execute()
+    //func start() //-> Cancellable?
 }

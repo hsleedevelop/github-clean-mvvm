@@ -1,0 +1,31 @@
+@startuml
+hide footbox
+title MVVM-C-Clean
+
+== Initialization 1==
+
+->AppDelegate: configurationForConnecting(ConnectionOptions)
+
+activate AppDelegate #FFBBBB
+    AppDelegate->SceneDelegate: willConnectTo(UISceneSession)
+    activate SceneDelegate #FFBBBB
+        SceneDelegate->AppCoordinator: start(UIWindow)
+        activate AppCoordinator #FFBBBB
+            AppCoordinator->MainViewCoordinator: init(UIWindow)
+            MainViewCoordinator-->AppCoordinator
+            AppCoordinator->AppCoordinator: coordinate(UIWindow)
+            activate AppCoordinator #FFBBBB
+            AppCoordinator->MainViewCoordinator: start()
+                activate MainViewCoordinator #FFBBBB
+                    create MainViewController
+                    MainViewCoordinator->MainViewController: init(ViewModel())
+                    MainViewController-->MainViewCoordinator
+                    MainViewCoordinator->MainViewCoordinator: window.makeKeyAndVisible()
+                    return Observable<Result>
+                'deactivate MainViewCoordinator
+            'deactivate AppCoordinator
+        'deactivate AppCoordinator
+    'deactivate SceneDelegate #FFBBBB
+'deactivate AppDelegate
+
+@enduml

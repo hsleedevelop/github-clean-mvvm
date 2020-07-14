@@ -67,12 +67,6 @@ class MainViewController: UIViewController {
             disposeBag = DisposeBag()
         }
     }
-    
-    deinit {
-        #if DEBUG
-        print("\(NSStringFromClass(type(of: self))) deinit")
-        #endif
-    }
 }
 
 
