@@ -7,8 +7,7 @@
 
 import Foundation
 
-public protocol UseCase {
-    @discardableResult
+public protocol UseCase {//TODO: remove
     func execute()
     //func start() //-> Cancellable?
 }

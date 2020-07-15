@@ -11,9 +11,11 @@ import RxSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
+    private let appDIContainer = AppDIContainer()
     private var appCoordinator: AppCoordinator!
     private let disposeBag = DisposeBag()
+
+    var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -29,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         // 3
-        appCoordinator = AppCoordinator(window: window!)
+        appCoordinator = AppCoordinator(window: window!, appDIContainer: appDIContainer)
         appCoordinator.start().subscribe().disposed(by: disposeBag)
     }
 

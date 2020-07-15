@@ -14,7 +14,7 @@ protocol APIService {
 
 final class MainSceneDIContainer {
     struct Dependencies {
-        let apiService: APIService
+        let apiProvider: GithubProvider
     }
     
     private let dependencies: Dependencies
@@ -23,10 +23,30 @@ final class MainSceneDIContainer {
         self.dependencies = dependencies
     }
     
-    // MARK: - Use Cases
-    func makeFetchFeedUseCase() -> FetchFeedUseCase {
-        //return DefaultSearchMoviesUseCase(moviesRepository: makeMoviesRepository(),
-        //                                  moviesQueriesRepository: makeMoviesQueriesRepository())
-        return .init(githubRepository: DefaultGithubRepository())
+    // MARK: - Flow Coordinators
+    func makeMainViewCoordinator(window: UIWindow) -> MainViewCoordinator {
+        let mainViewCoordinator = MainViewCoordinator(window: window, dependencies: self)
+        return mainViewCoordinator
     }
+    
+    func makeMainViewController(coordinator: MainViewCoordinator) -> MainViewController {
+        MainViewController.create(with: makeMainViewModel(coordinator: coordinator))
+    }
+    
+    func makeMainViewModel(coordinator: MainViewCoordinator) -> MainViewModel {
+        return .init(jobUseCase: makeJobsUseCase(), coordinator: coordinator)
+    }
+    
+    // MARK: - Use Cases
+    func makeJobsUseCase() -> JobsUseCaseAbstract {
+        return NetworkJobsUseCase(repository: makeGithbuRepository())
+    }
+    
+    // MARK: - Repositories
+    func makeGithbuRepository() -> GithubRepository {
+        return DefaultGithubRepository(service: dependencies.apiProvider)
+    }
+}
+
+extension MainSceneDIContainer: MainViewCoordinatorDependencies {
 }

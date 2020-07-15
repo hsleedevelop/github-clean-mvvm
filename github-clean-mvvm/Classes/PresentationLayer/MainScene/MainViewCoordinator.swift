@@ -10,25 +10,27 @@ import UIKit
 import RxSwift
 import RxSwiftExt
 
+protocol MainViewCoordinatorDependencies {
+    func makeMainViewController(coordinator: MainViewCoordinator) -> MainViewController
+    
+    //func makeMovieDetailsViewController(movie: Movie) -> MovieDetailsViewController
+}
+
+
 final class MainViewCoordinator: BaseCoordinator<Void> {
     typealias ViewModelType = MainViewModel
     
     private let window: UIWindow
-    private var viewController: MainViewController!
-    
-    init(window: UIWindow) {
+    private let dependencies: MainViewCoordinatorDependencies
+
+    //private var viewController: MainViewController!
+    init(window: UIWindow, dependencies: MainViewCoordinatorDependencies) {
         self.window = window
+        self.dependencies = dependencies
     }
     
     override func start() -> Observable<Void> {
-        guard let viewController = UIStoryboard(name: "MainScene", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else {
-            fatalError("MainViewController can't load")
-        }
-        self.viewController = viewController
-        
-        let viewModel = ViewModelType()
-        viewController.viewModel = viewModel
-
+        let viewController = dependencies.makeMainViewController(coordinator: self)
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

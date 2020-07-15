@@ -35,14 +35,19 @@
 		3A38857224B85ABC00B5594E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38857124B85ABC00B5594E /* NetworkConfig.swift */; };
 		3A38857524B85DA800B5594E /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38857424B85DA800B5594E /* GithubAPI.swift */; };
 		3A38857A24B85FD800B5594E /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38857924B85FD800B5594E /* UseCase.swift */; };
-		3A38857C24B8600300B5594E /* FetchFeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38857B24B8600300B5594E /* FetchFeedUseCase.swift */; };
+		3A38857C24B8600300B5594E /* JobsUseCaseAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38857B24B8600300B5594E /* JobsUseCaseAbstract.swift */; };
 		3A3941F724BC365400FA9219 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3941F624BC365400FA9219 /* NSObject+Extensions.swift */; };
+		3A4C3F4A24BEAE73000B4029 /* GithubJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C3F4924BEAE73000B4029 /* GithubJob.swift */; };
+		3A4C3F4E24BED583000B4029 /* GIthubNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C3F4D24BED583000B4029 /* GIthubNetworkService.swift */; };
+		3A4C3F5324BED8BE000B4029 /* JobsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C3F5224BED8BE000B4029 /* JobsUseCase.swift */; };
+		3A4C3F5524BEDD21000B4029 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C3F5424BEDD21000B4029 /* Data+Extensions.swift */; };
+		3A4C3F5724BEDDF4000B4029 /* ObservableType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C3F5624BEDDF4000B4029 /* ObservableType+Extensions.swift */; };
+		3A4C3F5B24BF0323000B4029 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C3F5924BF0323000B4029 /* Alertable.swift */; };
 		3AD0C49224BD59EB0061A099 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49124BD59EB0061A099 /* GithubRepository.swift */; };
 		3AD0C49424BD5A3C0061A099 /* GithubQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49324BD5A3C0061A099 /* GithubQuery.swift */; };
-		3AD0C49624BD5A7C0061A099 /* GithubFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49524BD5A7C0061A099 /* GithubFeed.swift */; };
 		3AD0C49924BD5AD90061A099 /* DefaultGithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49824BD5AD90061A099 /* DefaultGithubRepository.swift */; };
-		3AD0C49C24BD5B9F0061A099 /* GithubFeedsRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49B24BD5B9F0061A099 /* GithubFeedsRequestDTO+Mapping.swift */; };
-		3AD0C49E24BD5BB10061A099 /* GithubFeedsResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49D24BD5BB10061A099 /* GithubFeedsResponseDTO+Mapping.swift */; };
+		3AD0C49C24BD5B9F0061A099 /* GithubJobsRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49B24BD5B9F0061A099 /* GithubJobsRequestDTO+Mapping.swift */; };
+		3AD0C49E24BD5BB10061A099 /* GithubJobsResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0C49D24BD5BB10061A099 /* GithubJobsResponseDTO+Mapping.swift */; };
 		77276F39E8F37F6B02A5C224 /* Pods_github_clean_mvvmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177BA8951D35128B8D478C91 /* Pods_github_clean_mvvmTests.framework */; };
 		98F71C364B1477D7FB6F0847 /* Pods_github_clean_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD526631A992AC5825BC780 /* Pods_github_clean_mvvm.framework */; };
 /* End PBXBuildFile section */
@@ -87,15 +92,20 @@
 		3A38857124B85ABC00B5594E /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		3A38857424B85DA800B5594E /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		3A38857924B85FD800B5594E /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		3A38857B24B8600300B5594E /* FetchFeedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedUseCase.swift; sourceTree = "<group>"; };
+		3A38857B24B8600300B5594E /* JobsUseCaseAbstract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsUseCaseAbstract.swift; sourceTree = "<group>"; };
 		3A3941F624BC365400FA9219 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
+		3A4C3F4924BEAE73000B4029 /* GithubJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubJob.swift; sourceTree = "<group>"; };
+		3A4C3F4D24BED583000B4029 /* GIthubNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIthubNetworkService.swift; sourceTree = "<group>"; };
+		3A4C3F5224BED8BE000B4029 /* JobsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsUseCase.swift; sourceTree = "<group>"; };
+		3A4C3F5424BEDD21000B4029 /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		3A4C3F5624BEDDF4000B4029 /* ObservableType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extensions.swift"; sourceTree = "<group>"; };
+		3A4C3F5924BF0323000B4029 /* Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		3A7D4EEE8DABF5358652B244 /* Pods-github-clean-mvvm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-clean-mvvm.debug.xcconfig"; path = "Target Support Files/Pods-github-clean-mvvm/Pods-github-clean-mvvm.debug.xcconfig"; sourceTree = "<group>"; };
 		3AD0C49124BD59EB0061A099 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		3AD0C49324BD5A3C0061A099 /* GithubQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubQuery.swift; sourceTree = "<group>"; };
-		3AD0C49524BD5A7C0061A099 /* GithubFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFeed.swift; sourceTree = "<group>"; };
 		3AD0C49824BD5AD90061A099 /* DefaultGithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGithubRepository.swift; sourceTree = "<group>"; };
-		3AD0C49B24BD5B9F0061A099 /* GithubFeedsRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubFeedsRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
-		3AD0C49D24BD5BB10061A099 /* GithubFeedsResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubFeedsResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		3AD0C49B24BD5B9F0061A099 /* GithubJobsRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubJobsRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		3AD0C49D24BD5BB10061A099 /* GithubJobsResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubJobsResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		8CD526631A992AC5825BC780 /* Pods_github_clean_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_github_clean_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F707504A7AFE405C725E25 /* Pods-github-clean-mvvmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-clean-mvvmTests.debug.xcconfig"; path = "Target Support Files/Pods-github-clean-mvvmTests/Pods-github-clean-mvvmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE42BCEE7237B9C8C8B8DDA0 /* Pods-github-clean-mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-clean-mvvm.release.xcconfig"; path = "Target Support Files/Pods-github-clean-mvvm/Pods-github-clean-mvvm.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD0C48E24BD4B660061A099 /* Extensions */,
+				3A4C3F5824BF0323000B4029 /* Protocols */,
 				3A38855324B84BFB00B5594E /* Utilities.swift */,
 				3A38855424B84BFB00B5594E /* ErrorTracker.swift */,
 				3A38855524B84BFB00B5594E /* ActivityIndicator.swift */,
@@ -251,9 +262,9 @@
 		3A38856024B84CC300B5594E /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
+				3A38854D24B84B8F00B5594E /* MainViewModel.swift */,
 				3A38856124B84EEE00B5594E /* MainViewCoordinator.swift */,
 				3A38854824B84A7600B5594E /* MainViewController.swift */,
-				3A38854D24B84B8F00B5594E /* MainViewModel.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 		3A38856D24B859E600B5594E /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				3A4C3F4D24BED583000B4029 /* GIthubNetworkService.swift */,
 				3A38856E24B859F700B5594E /* Network */,
 			);
 			path = Infrastructure;
@@ -306,6 +318,7 @@
 		3A38857324B85D9300B5594E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3A4C3F4F24BED882000B4029 /* UseCases */,
 				3A38857424B85DA800B5594E /* GithubAPI.swift */,
 				3AD0C49A24BD5B790061A099 /* DataMapping */,
 			);
@@ -315,7 +328,7 @@
 		3A38857624B85FB200B5594E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				3AD0C49524BD5A7C0061A099 /* GithubFeed.swift */,
+				3A4C3F4924BEAE73000B4029 /* GithubJob.swift */,
 				3AD0C49324BD5A3C0061A099 /* GithubQuery.swift */,
 			);
 			path = Entities;
@@ -325,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				3A38857824B85FCE00B5594E /* Protocol */,
-				3A38857B24B8600300B5594E /* FetchFeedUseCase.swift */,
+				3A38857B24B8600300B5594E /* JobsUseCaseAbstract.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -345,10 +358,28 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		3A4C3F4F24BED882000B4029 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				3A4C3F5224BED8BE000B4029 /* JobsUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		3A4C3F5824BF0323000B4029 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3A4C3F5924BF0323000B4029 /* Alertable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		3AD0C48E24BD4B660061A099 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3A4C3F5424BEDD21000B4029 /* Data+Extensions.swift */,
 				3A3941F624BC365400FA9219 /* NSObject+Extensions.swift */,
+				3A4C3F5624BEDDF4000B4029 /* ObservableType+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,8 +411,8 @@
 		3AD0C49A24BD5B790061A099 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
-				3AD0C49B24BD5B9F0061A099 /* GithubFeedsRequestDTO+Mapping.swift */,
-				3AD0C49D24BD5BB10061A099 /* GithubFeedsResponseDTO+Mapping.swift */,
+				3AD0C49B24BD5B9F0061A099 /* GithubJobsRequestDTO+Mapping.swift */,
+				3AD0C49D24BD5BB10061A099 /* GithubJobsResponseDTO+Mapping.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -585,32 +616,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A38854E24B84B8F00B5594E /* MainViewModel.swift in Sources */,
+				3A4C3F5324BED8BE000B4029 /* JobsUseCase.swift in Sources */,
+				3A4C3F4E24BED583000B4029 /* GIthubNetworkService.swift in Sources */,
+				3A4C3F4A24BEAE73000B4029 /* GithubJob.swift in Sources */,
 				3A3941F724BC365400FA9219 /* NSObject+Extensions.swift in Sources */,
 				3A38851724B849A300B5594E /* AppDelegate.swift in Sources */,
 				3A38856A24B8551800B5594E /* MainSceneDIContainer.swift in Sources */,
 				3A38857024B85A1400B5594E /* NetworkService.swift in Sources */,
 				3A38857524B85DA800B5594E /* GithubAPI.swift in Sources */,
 				3AD0C49224BD59EB0061A099 /* GithubRepository.swift in Sources */,
-				3A38857C24B8600300B5594E /* FetchFeedUseCase.swift in Sources */,
+				3A38857C24B8600300B5594E /* JobsUseCaseAbstract.swift in Sources */,
 				3AD0C49924BD5AD90061A099 /* DefaultGithubRepository.swift in Sources */,
-				3AD0C49624BD5A7C0061A099 /* GithubFeed.swift in Sources */,
 				3A38857A24B85FD800B5594E /* UseCase.swift in Sources */,
 				3A38855D24B84C7D00B5594E /* AppAppearance.swift in Sources */,
 				3A38854724B84A5600B5594E /* AppCoordinator.swift in Sources */,
 				3A38855A24B84BFB00B5594E /* Observable+Ext.swift in Sources */,
 				3A38855E24B84C7D00B5594E /* AppConfigurations.swift in Sources */,
 				3A38856224B84EEE00B5594E /* MainViewCoordinator.swift in Sources */,
+				3A4C3F5524BEDD21000B4029 /* Data+Extensions.swift in Sources */,
 				3A38854924B84A7600B5594E /* MainViewController.swift in Sources */,
 				3A38855924B84BFB00B5594E /* ActivityIndicator.swift in Sources */,
 				3A38856724B851EC00B5594E /* AppDIContainer.swift in Sources */,
-				3AD0C49C24BD5B9F0061A099 /* GithubFeedsRequestDTO+Mapping.swift in Sources */,
+				3AD0C49C24BD5B9F0061A099 /* GithubJobsRequestDTO+Mapping.swift in Sources */,
 				3A38857224B85ABC00B5594E /* NetworkConfig.swift in Sources */,
 				3A38851924B849A300B5594E /* SceneDelegate.swift in Sources */,
 				3A38855724B84BFB00B5594E /* Utilities.swift in Sources */,
 				3A38853D24B849E200B5594E /* BaseCoordinator.swift in Sources */,
 				3AD0C49424BD5A3C0061A099 /* GithubQuery.swift in Sources */,
+				3A4C3F5724BEDDF4000B4029 /* ObservableType+Extensions.swift in Sources */,
 				3A38854C24B84A9300B5594E /* ViewModelType.swift in Sources */,
-				3AD0C49E24BD5BB10061A099 /* GithubFeedsResponseDTO+Mapping.swift in Sources */,
+				3A4C3F5B24BF0323000B4029 /* Alertable.swift in Sources */,
+				3AD0C49E24BD5BB10061A099 /* GithubJobsResponseDTO+Mapping.swift in Sources */,
 				3A38855824B84BFB00B5594E /* ErrorTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,19 +9,43 @@ title MVVM-C-Clean
 activate AppDelegate #FFBBBB
     AppDelegate->SceneDelegate: willConnectTo(UISceneSession)
     activate SceneDelegate #FFBBBB
-        SceneDelegate->AppCoordinator: start(UIWindow)
+        SceneDelegate->AppCoordinator: init(UIWindow, AppDIContainer.init())
         activate AppCoordinator #FFBBBB
-            AppCoordinator->MainViewCoordinator: init(UIWindow)
-            MainViewCoordinator-->AppCoordinator
-            AppCoordinator->AppCoordinator: coordinate(UIWindow)
-            activate AppCoordinator #FFBBBB
-            AppCoordinator->MainViewCoordinator: start()
-                activate MainViewCoordinator #FFBBBB
-                    create MainViewController
-                    MainViewCoordinator->MainViewController: init(ViewModel())
-                    MainViewController-->MainViewCoordinator
-                    MainViewCoordinator->MainViewCoordinator: window.makeKeyAndVisible()
-                    return Observable<Result>
+            AppCoordinator-->SceneDelegate: appCoordinator
+        deactivate AppCoordinator
+        SceneDelegate->AppCoordinator: start()
+        activate AppCoordinator #FFBBBB
+                AppCoordinator->AppDIContainer: makeMainSceneDIContainer()
+                activate AppDIContainer #FFBBBB
+                    AppDIContainer-->AppCoordinator: mainSceneDIContainer
+                deactivate AppDIContainer #FFBBBB
+                AppCoordinator->MainSceneDIContainer: mainViewCoordinator(window, dependencies)
+                activate MainSceneDIContainer #FFBBBB
+                    'create MainViewCoordinator
+                    MainSceneDIContainer->MainViewCoordinator: init(window, dependencies)
+                    activate MainViewCoordinator #FFBBBB
+                    MainViewCoordinator-->MainSceneDIContainer: mainViewCoordinator
+                    deactivate MainViewCoordinator
+                    MainSceneDIContainer-->AppCoordinator: mainViewCoordinator
+                deactivate MainSceneDIContainer
+                AppCoordinator-->AppCoordinator: coordinate(mainViewCoordinator)
+                activate AppCoordinator #FFBBBB
+                    AppCoordinator->MainViewCoordinator: start()
+                    activate MainViewCoordinator #FFBBBB
+                        MainViewCoordinator->MainSceneDIContainer: makeMainViewController(coordinator: self)
+                        activate MainSceneDIContainer #FFBBBB
+                            MainSceneDIContainer-->MainSceneDIContainer: makeMainViewModel(coordinator)
+                            'create MainViewController
+                            MainSceneDIContainer->MainViewController: create(mainViewModel)
+                                activate MainViewController #FFBBBB
+                                    MainViewController-->MainSceneDIContainer: viewController
+                                deactivate MainViewController
+                            MainSceneDIContainer-->MainViewCoordinator: viewController
+                            MainViewCoordinator-->MainViewCoordinator: window.makeKeyAndVisible()
+                        deactivate MainSceneDIContainer
+                        return Observable<CoordinatorResult>
+                deactivate AppCoordinator
+                return Observable<Void>
                 'deactivate MainViewCoordinator
             'deactivate AppCoordinator
         'deactivate AppCoordinator

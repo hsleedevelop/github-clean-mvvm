@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GithubRepository {
-    func fetchFeedUseCase(query: GithubQuery)
+    func fetchJobsUseCase() -> Observable<[GithubJob]>
 }

@@ -12,13 +12,16 @@ import RxSwift
 class AppCoordinator: BaseCoordinator<Void> {
 
     private let window: UIWindow
-
-    init(window: UIWindow) {
+    private let appDIContainer: AppDIContainer
+    
+    init(window: UIWindow, appDIContainer: AppDIContainer) {
         self.window = window
+        self.appDIContainer = appDIContainer
     }
 
     override func start() -> Observable<Void> {
-        let mainViewCoordinator = MainViewCoordinator(window: window)
+        let mainSceneDIContainer = appDIContainer.makeMainSceneDIContainer()
+        let mainViewCoordinator = mainSceneDIContainer.makeMainViewCoordinator(window: window)
         return coordinate(to: mainViewCoordinator)
     }
 }

@@ -8,12 +8,12 @@
 
 import UIKit
 
-extension NSObject  {
-    deinit {
-        print("_getRetainCount(self)=\(CFGetRetainCount(self))")
-        
-        #if DEBUG
-        print("\(NSStringFromClass(type(of: self))) deinit")
-        #endif
-    }
-}
+//extension NSObject  {
+//    deinit {
+//        print("_getRetainCount(self)=\(CFGetRetainCount(self))")
+//        
+//        #if DEBUG
+//        print("\(NSStringFromClass(type(of: self))) deinit")
+//        #endif
+//    }
+//}

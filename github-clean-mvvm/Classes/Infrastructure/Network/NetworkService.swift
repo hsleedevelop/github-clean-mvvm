@@ -73,3 +73,13 @@ extension NetworkService {
         }
     }
 }
+
+//
+final class GithubProvider: NetworkService {
+    typealias T = GithubAPI
+    func list() -> Observable<[GithubJob]> {
+        return request(api: .list(0, 0))
+            .map([JobElementDTO].self)
+            .mapMany { $0.toDomain() }
+    }
+}

@@ -10,4 +10,5 @@ import Foundation
 
 struct GithubQuery: Equatable {
     let query: String
+    let page: Int
 }

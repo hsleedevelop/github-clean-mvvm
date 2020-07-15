@@ -1,5 +1,5 @@
 //
-//  GithubFeedsRequestDTO+Mapping.swift
+//  GithubJobsRequestDTO+Mapping.swift
 //  github-clean-mvvm
 //
 //  Created by HS Lee on 2020/07/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GithubFeedsRequestDTO: Encodable {
+struct GithubJobsRequestDTO: Encodable {//TODO: remove
     let query: String
     let page: Int
 }

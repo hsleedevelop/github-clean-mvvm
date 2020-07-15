@@ -13,8 +13,16 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Alertable {
     typealias ViewModelType = MainViewModel
+    
+    static func create(with viewModel: ViewModelType) -> MainViewController {
+        guard let viewController = UIStoryboard(name: "MainScene", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else {
+            fatalError("MainViewController can't load")
+        }
+        viewController.viewModel = viewModel
+        return viewController
+    }
     
     // MARK: - * properties --------------------
     var viewModel: ViewModelType!
@@ -40,6 +48,8 @@ class MainViewController: UIViewController {
 
     // MARK: - * Main Logic --------------------
     private func bindViewModel() {
+        let input = ViewModelType.Input.init(fetchList: .just(()))
+        let output = viewModel.transform(input: input)
 //        let input = IntroViewModel.Input(launching: viewDidLoadRelay.asObservable())
 //        let output = viewModel.transform(input: input)
 //
@@ -48,13 +58,15 @@ class MainViewController: UIViewController {
 //            .drive(FlowCoordinator.shared.rx.flow)
 //            .disposed(by: disposeBag)
 //
-//        output.error
-//            .do(onNext: { error in
-//                print(error.localizedDescription)
-//            })
-//            .map { _ in (FlowCoordinator.Step.authentication, nil, self.view.window) }
-//            .drive(FlowCoordinator.shared.rx.flow)
-//            .disposed(by: disposeBag)
+        output.error
+            .do(onNext: { error in
+                print(error.localizedDescription)
+            })
+            .drive(onNext: { [weak self] error in
+                guard let self = self else { return }
+                self.showAlert(message: error.localizedDescription)
+            })
+            .disposed(by: disposeBag)
     }
 
     // MARK: - * UI Events --------------------

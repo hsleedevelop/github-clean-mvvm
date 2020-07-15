@@ -23,9 +23,11 @@ final class AppDIContainer {
 //    }
     
     func makeMainSceneDIContainer() -> MainSceneDIContainer {
-        let dependencies = MainSceneDIContainer.Dependencies(apiService: GithubAPIService())
+        let dependencies = MainSceneDIContainer.Dependencies(apiProvider: GithubProvider())
         return .init(dependencies: dependencies)
     }
+    
+    // MARK: - Movies List
     
 //    // MARK: - Network
 //    lazy var apiDataTransferService: DataTransferService = {
