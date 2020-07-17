@@ -9,7 +9,8 @@
 import Foundation
 
 protocol API {
-    var url: String { get }
+//    var url: String { get }
+    var path: String { get }
 }
 
 enum GithubAPI: API {
@@ -19,10 +20,10 @@ enum GithubAPI: API {
     ///검색
     case search(Int, Int, String)
     
-    private var path: String {
+    var path: String {
         switch self {
         case let .list(page, pageSize):
-            return "/photos?page=\(page)&per_page=\(pageSize)"
+            return "/positions.json?description=ios&full_time=true"
         case let .search(page, pageSize, keyword):
             return "/search/photos?query=\(keyword)&page=\(page)"
         }
@@ -33,9 +34,5 @@ enum GithubAPI: API {
         default:
             return "GET"
         }
-    }
-    
-    var url: String {
-        return self.path
     }
 }

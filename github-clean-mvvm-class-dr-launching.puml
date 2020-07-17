@@ -1,0 +1,12 @@
+@startuml
+AppDelegate ..> SceneDelegate
+SceneDelegate ==> AppCoordinator
+SceneDelegate ==> AppDIContainer
+AppCoordinator ..> AppDIContainer
+'AppCoordinator .. MainSceneDIContainer
+AppCoordinator ==> MainViewCoordinator
+MainSceneDIContainer .. MainViewCoordinator
+MainSceneDIContainer ..> GithubProvider
+'MainViewCoordinator-->MainSceneDIContainer
+
+@enduml

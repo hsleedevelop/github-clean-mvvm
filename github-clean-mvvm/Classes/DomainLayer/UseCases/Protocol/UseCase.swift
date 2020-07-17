@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol UseCase {//TODO: remove
-    func execute()
-    //func start() //-> Cancellable?
-}
+//public protocol UseCase {//TODO: remove
+//    func execute()
+//    //func start() //-> Cancellable?
+//}

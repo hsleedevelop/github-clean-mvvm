@@ -20,7 +20,7 @@ extension MainViewModel {
     }
     
     struct Output {
-        //        var list: Driver<[String]>
+        var list: Driver<[GithubJob]>
         //        var currentIndex: Driver<Int>
         var isLoading: Driver<Bool>
         var error: Driver<Error>
@@ -52,38 +52,20 @@ final class MainViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
+        let jobList = self.fetchJobList(githubQuery: .init(query: "", page: 1), loadingType: .nextPage)
         
-        
-        let jobs = self.load(githubQuery: .init(query: "", page: 1), loadingType: .nextPage)
-        
-        return .init(isLoading: activity.asDriver(),
+        return .init(list: jobList.asDriver(onErrorJustReturn: []),
+                     isLoading: activity.asDriver(),
                      error: errorTracker.asDriver())
     }
     
-    private func load(githubQuery: GithubQuery, loadingType: JobsListViewModelLoading) -> Observable<[GithubJob]> {
+    private func fetchJobList(githubQuery: GithubQuery, loadingType: JobsListViewModelLoading) -> Observable<[GithubJob]> {
         return jobUseCase.lists(page: githubQuery.page)
+            .do(onNext: {
+                print($0)
+            })
             .trackError(errorTracker)
             .trackActivity(activity)
-//        self.loadingType.value = loadingType
-//        query.value = githubQuery.query
-//
-//        fetchJobsUseCase.execute()
-        
-        
-        
-        //moviesLoadTask = fetchJobsUseCase.execute(
-//        moviesLoadTask = fetchJobsUseCase.execute(
-//            requestValue: .init(query: movieQuery, page: nextPage),
-//            cached: appendPage,
-//            completion: { result in
-//                switch result {
-//                case .success(let page):
-//                    self.appendPage(page)
-//                case .failure(let error):
-//                    self.handle(error: error)
-//                }
-//                self.loadingType.value = .none
-//        })
     }
 }
 

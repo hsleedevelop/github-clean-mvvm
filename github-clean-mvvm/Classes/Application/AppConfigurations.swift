@@ -13,7 +13,7 @@ final class AppConfiguration {
         return "Cucxa-WzacTQknrD5Ocu-RUARI4rMoDiUbag81fT88A"
     }()
     lazy var apiBaseURL: String = {
-        return "https://api.unsplash.com"
+        return "https://jobs.github.com"
     }()
     lazy var imagesBaseURL: String = {
         guard let imageBaseURL = Bundle.main.object(forInfoDictionaryKey: "ImageBaseURL") as? String else {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GithubJobsRequestDTO: Encodable {//TODO: remove
-    let query: String
-    let page: Int
-}
+//struct GithubJobsRequestDTO: Encodable {//TODO: remove
+//    let query: String
+//    let page: Int
+//}

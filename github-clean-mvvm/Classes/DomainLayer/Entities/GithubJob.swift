@@ -15,6 +15,7 @@ struct GithubJob: Equatable, Identifiable {
     let url: String
     let createdAt, company: String
     let companyUrl: String?
-    let location, title, jobDescription, howToApply: String
-    let companyLogo: String
+    let location, title, jobDescription: String
+    let howToApply: String?
+    let companyLogo: String?
 }

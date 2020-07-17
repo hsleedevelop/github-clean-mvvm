@@ -23,7 +23,7 @@ final class AppDIContainer {
 //    }
     
     func makeMainSceneDIContainer() -> MainSceneDIContainer {
-        let dependencies = MainSceneDIContainer.Dependencies(apiProvider: GithubProvider())
+        let dependencies = MainSceneDIContainer.Dependencies(service: GithubService(config: appConfiguration))
         return .init(dependencies: dependencies)
     }
     

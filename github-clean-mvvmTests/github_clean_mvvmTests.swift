@@ -9,6 +9,31 @@
 import XCTest
 @testable import github_clean_mvvm
 
+class VCTest {
+    let vc = UIViewController()
+    let str = "test"
+    lazy var xx: () -> Void = { [vc] in
+        print(vc.description)
+        //print(self.vc.description)
+    }
+    
+    func run() {
+        xx()
+    }
+    
+    func run2() {
+        var xxx: () -> Void = {
+            print(self.vc.description)
+            //print(self.vc.description)
+        }
+        xxx()
+    }
+    
+    deinit {
+        print("\(NSStringFromClass(type(of: self))) deinit")
+    }
+}
+
 class github_clean_mvvmTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -20,8 +45,10 @@ class github_clean_mvvmTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var test: VCTest! = VCTest()
+        test.run()
+        //test.run2()
+        test = nil
     }
 
     func testPerformanceExample() throws {

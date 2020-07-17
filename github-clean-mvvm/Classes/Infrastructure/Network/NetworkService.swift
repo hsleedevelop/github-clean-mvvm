@@ -31,9 +31,10 @@ public protocol NetworkErrorLogger {
 
 protocol NetworkService {
     associatedtype T: API
-    typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
-    
-    func request(api: T) -> Observable<Data>
+    typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void //TODO: remove
+
+    var baseURL: String { get set }
+    func request(baseURL: String, api: T) -> Observable<Data>
 }
 
 
@@ -43,8 +44,8 @@ extension NetworkService {
     /// moya concept을 빌려옴
     /// - Parameter api: api path generic
     /// - Returns: response date
-    func request(api: T) -> Observable<Data> {
-        guard let url = URL(string: api.url) else {
+    func request(baseURL: String, api: T) -> Observable<Data> {
+        guard let url = URL(string: baseURL + api.path) else {
             return Observable.error(NetworkError.urlGeneration)
         }
         #if DEBUG
@@ -71,15 +72,5 @@ extension NetworkService {
                 task.cancel()
             }
         }
-    }
-}
-
-//
-final class GithubProvider: NetworkService {
-    typealias T = GithubAPI
-    func list() -> Observable<[GithubJob]> {
-        return request(api: .list(0, 0))
-            .map([JobElementDTO].self)
-            .mapMany { $0.toDomain() }
     }
 }

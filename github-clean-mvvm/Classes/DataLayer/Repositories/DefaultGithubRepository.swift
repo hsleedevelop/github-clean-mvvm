@@ -11,9 +11,9 @@ import RxSwift
 
 final class DefaultGithubRepository {
     typealias T = GithubAPI
-    private let service: GithubProvider
+    private let service: GithubService
     
-    init(service: GithubProvider) {
+    init(service: GithubService) {
         self.service = service
     }
 }

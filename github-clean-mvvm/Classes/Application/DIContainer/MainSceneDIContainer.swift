@@ -14,7 +14,7 @@ protocol APIService {
 
 final class MainSceneDIContainer {
     struct Dependencies {
-        let apiProvider: GithubProvider
+        let service: GithubService
     }
     
     private let dependencies: Dependencies
@@ -44,7 +44,7 @@ final class MainSceneDIContainer {
     
     // MARK: - Repositories
     func makeGithbuRepository() -> GithubRepository {
-        return DefaultGithubRepository(service: dependencies.apiProvider)
+        return DefaultGithubRepository(service: dependencies.service)
     }
 }
 
