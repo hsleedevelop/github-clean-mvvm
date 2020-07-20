@@ -14,44 +14,6 @@ import RxCocoa
 import RxSwiftExt
 import RxDataSources
 
-final class MainTableViewCell: UITableViewCell {
-    var disposeBag = DisposeBag()
-    
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var companyLabel: UILabel!
-    @IBOutlet weak var jobLabel: UILabel!
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        //self.imageView?.image = nil
-        disposeBag = DisposeBag()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        setupUIControls()
-    }
-    
-    func setupUIControls() {
-        logoImageView.contentMode = .scaleAspectFill
-    }
-    
-    func configure(_ job: GithubJob) {
-        self.companyLabel?.text = job.company
-        self.jobLabel?.text = job.title
-        
-        if let url = job.companyLogo {
-            ImageNetworkService.shared.get(url)
-                .observeOn(MainScheduler.instance)
-                .bind(to: logoImageView.rx.image)
-                .disposed(by: disposeBag)
-        } else {
-            logoImageView.image = nil
-        }
-    }
-}
-
 struct GithubJobSection {
   var header: String
   var items: [Item]
