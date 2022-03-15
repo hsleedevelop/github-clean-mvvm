@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Domain
 // MARK: - Data Transfer Object
 
 typealias JobResponseDTO = [JobElementDTO]
@@ -52,12 +52,12 @@ extension JobElementDTO {
     }
 }
 
-// MARK: - Private\
-private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-    formatter.calendar = Calendar(identifier: .iso8601)
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    formatter.locale = Locale(identifier: "en_US_POSIX")
-    return formatter
-}()
+//// MARK: - Private\
+//private let dateFormatter: DateFormatter = {
+//    let formatter = DateFormatter()
+//    formatter.dateFormat = "yyyy-MM-dd"
+//    formatter.calendar = Calendar(identifier: .iso8601)
+//    formatter.timeZone = TimeZone(secondsFromGMT: 0)
+//    formatter.locale = Locale(identifier: "en_US_POSIX")
+//    return formatter
+//}()
